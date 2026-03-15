@@ -8,7 +8,9 @@ const router = express.Router();
 router.post("/", verifyToken, saveSimulation);
 
 /* FETCH USER HISTORY */
+router.get("/", verifyToken, getUserSimulations);   // ADD THIS
 router.get("/history", verifyToken, getUserSimulations);
+
 router.get("/analytics", verifyToken, getRiskAnalytics);
 
 export default router;
