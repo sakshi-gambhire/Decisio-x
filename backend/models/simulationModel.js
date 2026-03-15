@@ -1,22 +1,22 @@
 import pool from "../config/db.js";
 
 export const createSimulation = async (
+  
   user_id,
   age,
-  income,
-  savings,
+  income,        // goes to monthly_income
+  savings,       // goes to existing_savings
   investment_amount,
   risk_level,
   investment_horizon,
   investment_goal,
   strategy
+
 ) => {
 
   const query = `
     INSERT INTO simulations
-    (user_id, age, income, savings, investment_amount, risk_level, investment_horizon, investment_goal, strategy)
-    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
-    RETURNING *;
+(user_id, age, monthly_income, existing_savings, investment_amount, risk_level, investment_horizon, investment_goal, strategy)
   `;
 
   const values = [
